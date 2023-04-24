@@ -437,7 +437,7 @@ You can make these changes in your repository by opening [`my-workflow.yml`](/.g
 
 <summary><h2> Step 6: Trigger the joke action</h2></summary>
 
-_Great job! :heart:_
+_Great job! :heart:
 
 Everything is all set up and now we are ready to start laughing. You will find you have some joke related labels available to you in this repository. You don't have to use them, any label will trigger our workflow, but the easiest way to follow along would be to use suggested labels.
 
@@ -482,9 +482,51 @@ Follow [this guide](https://help.github.com/en/actions/automating-your-workflow-
 
 </details>
 
----
+---01、图像优化器  张朝勇
+
+这个伟大的自动化脚本可以帮助你更好地处理图片，你可以像在Photoshop中一样编辑它们。
+
+该脚本使用流行的Pillow模块。
 
 Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
 &copy; 2022 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
+# 图像优化
+# pip install Pillow
+import PIL
+# 裁剪 
+im = PIL.Image.open("Image1.jpg")
+im = im.crop((34, 23, 100, 100))
+# 调整大小
+im = PIL.Image.open("Image1.jpg")
+im = im.resize((50, 50))
+# 翻转
+im = PIL.Image.open("Image1.jpg")
+im = im.transpose(PIL.Image.FLIP_LEFT_RIGHT)
+# 旋转
+im = PIL.Image.open("Image1.jpg")
+im = im.rotate(360)
+# 压缩
+im = PIL.Image.open("Image1.jpg")
+im.save("Image1.jpg", optimize=True, quality=90)
+# 模糊化
+im = PIL.Image.open("Image1.jpg")
+im = im.filter(PIL.ImageFilter.BLUR)
+# 锐化
+im = PIL.Image.open("Image1.jpg")
+im = im.filter(PIL.ImageFilter.SHARPEN)
+# 设置亮度
+im = PIL.Image.open("Image1.jpg")
+im = PIL.ImageEnhance.Brightness(im)
+im = im.enhance(1.5)
+# 设置对比度
+im = PIL.Image.open("Image1.jpg")
+im = PIL.ImageEnhance.Contrast(im)
+im = im.enhance(1.5)
+# 添加过滤器
+im = PIL.Image.open("Image1.jpg")
+im = PIL.ImageOps.grayscale(im)
+im = PIL.ImageOps.invert(im)
+im = PIL.ImageOps. posterize(im, 4)
+# 保存
+im.save("Image1.jpg")

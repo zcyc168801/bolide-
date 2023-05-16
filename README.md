@@ -487,4 +487,25 @@ Follow [this guide](https://help.github.com/en/actions/automating-your-workflow-
 Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
 &copy; 2022 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
+def calc_macd(prices, fast_window, slow_window, signal_window):
+    fast_ewma = prices.ewm(span=fast_window, adjust=False).mean()
+    slow_ewma = prices.ewm(span=slow_window, adjust=False).mean()
+    macd = fast_ewma - slow_ewma
+    signal = macd.ewm(span=signal_window, adjust=False).mean()
+    返回macd, signal
+
+macd, signal = calc_macd(df['Close'], 12, 26, 9)
+df['MACD_line']=macd
+df['Signal_line']=signal
+df = df.set_index('Date')
+
+df[['Close']].plot(标签='价格',figsize=(10,6))
+plt.plot(macd, label='MACD线', linestyle='--')
+plt.plot(signal, label='信号线', linestyle=':')
+plt.legend()
+plt.title("MACD")
+plt.show()

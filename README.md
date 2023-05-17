@@ -1,4 +1,3 @@
-<gitversion
 <!--
   <<< Author notes: Header of the course >>>
   Include a 1280×640 image, course name in sentence case, and a concise description in emphasis.

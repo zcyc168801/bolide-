@@ -509,3 +509,4 @@ plt.plot(signal, label='信号线', linestyle=':')
 plt.legend()
 plt.title("MACD")
 plt.show()
+octocat/Spoon-Knife
